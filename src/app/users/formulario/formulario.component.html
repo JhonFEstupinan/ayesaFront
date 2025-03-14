@@ -1,0 +1,37 @@
+<form [formGroup]="usuarioForm" (ngSubmit)="guardarUsuario()">
+    <label>Tipo de usuario</label>
+    <select formControlName="tipo">
+      <option value="Demandante">Demandante</option>
+      <option value="Empleado">Empleado</option>
+    </select>
+    <div *ngIf="usuarioForm.controls['tipo'].invalid && usuarioForm.controls['tipo'].touched">
+      <small>Campo obligatorio</small>
+    </div>
+  
+    <label>NIF o Pasaporte</label>
+    <input type="text" formControlName="nif" />
+    <div *ngIf="usuarioForm.controls['nif'].invalid && usuarioForm.controls['nif'].touched">
+      <small>Campo obligatorio</small>
+    </div>
+  
+    <label>Nombre</label>
+    <input type="text" formControlName="nombre" />
+    <div *ngIf="usuarioForm.controls['nombre'].invalid && usuarioForm.controls['nombre'].touched">
+      <small>Campo obligatorio</small>
+    </div>
+  
+    <label>Primer Apellido</label>
+    <input type="text" formControlName="primerApellido" />
+    <div *ngIf="usuarioForm.controls['primerApellido'].invalid && usuarioForm.controls['primerApellido'].touched">
+      <small>Campo obligatorio</small>
+    </div>
+  
+    <label>Fecha de Nacimiento</label>
+    <input type="date" formControlName="fechaNacimiento" />
+    <div *ngIf="usuarioForm.controls['fechaNacimiento'].invalid && usuarioForm.controls['fechaNacimiento'].touched">
+      <small>Campo obligatorio</small>
+    </div>
+  
+    <button type="submit" [disabled]="usuarioForm.invalid">Guardar</button>
+  </form>
+  

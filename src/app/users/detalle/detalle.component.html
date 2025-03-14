@@ -1,0 +1,9 @@
+<div *ngIf="usuario">
+    <h2>Detalles de {{ usuario.nombre }} {{ usuario.primerApellido }}</h2>
+    <p><strong>NIF:</strong> {{ usuario.nif }}</p>
+    <p><strong>Género:</strong> {{ usuario.genero }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ usuario.fechaNacimiento | date }}</p>
+    <p><strong>Dirección:</strong> {{ usuario.direccion.calle }}, {{ usuario.direccion.numero }}</p>
+    <a routerLink="/usuarios">Volver</a>
+  </div>
+  

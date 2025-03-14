@@ -1,0 +1,25 @@
+<select (change)="filtrarUsuarios()" [(ngModel)]="filtroTipo">
+    <option value="">Todos</option>
+    <option value="Demandante">Demandante</option>
+    <option value="Empleado">Empleado</option>
+  </select>
+  
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Acciones</th>
+    </tr>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{ usuario.nombre }} {{ usuario.primerApellido }}</td>
+      <td>{{ usuario.tipo }}</td>
+      <td>
+        <button [routerLink]="['/usuarios/detalle', usuario.id]">Ver</button>
+        <button [routerLink]="['/usuarios/editar', usuario.id]">Editar</button>
+        <button (click)="eliminarUsuario(usuario.id)">Borrar</button>
+      </td>
+    </tr>
+  </table>
+  
+  <button [routerLink]="['/usuarios/nuevo']">Nuevo usuario</button>
+  
